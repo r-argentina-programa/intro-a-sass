@@ -1,0 +1,12 @@
+$mi-color: yellow;
+$background-color: black;
+
+body {
+  // background-color: $bakground-color; // esto da error
+  // los comentarios de una sola línea también funcionan (y se eliminan al momento de convertir a CSS)
+  background-color: $background-color;
+}
+
+h1 {
+  color: $mi-color;
+}
