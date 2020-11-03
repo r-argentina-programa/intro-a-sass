@@ -1,15 +1,6 @@
-$mi-color: red;
+@use 'partial';
+@use 'partial2';
 
-h1 {
-  color: $mi-color;
-}
-
-#nested{
-  h1{
-    color: black;
-  }
-
-  & > p{ //sólo los hijos directos del elemento padre
-    font-weight: bold;
-  }
-}
+@import 'partial3';
+@import 'partial3';
+@import 'partial3';
