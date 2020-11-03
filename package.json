@@ -6,11 +6,21 @@
   "scripts": {
     "sass": "sass ./sass/index.scss ./public/css/index.css",
     "sass:watch": "sass ./sass/index.scss ./public/css/index.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "NODE_ENV=production gulp",
+    "gulp:dev": "NODE_ENV=development gulp"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-noop": "^1.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webserver": "^0.9.1",
     "sass": "^1.28.0"
   }
 }
