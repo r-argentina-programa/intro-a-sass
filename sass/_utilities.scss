@@ -1,0 +1,46 @@
+// nota: Si los valores se pasan como string entonces las operaciones aritméticas no funcionan
+// ej.: $base-font-size-px: '16px';
+@function calc-rem($font-size-px, $base-font-size-px: 16px){
+  @return $font-size-px / $base-font-size-px;
+}
+
+
+/// Mixin para manejar distintos breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Nombre del breakpoint
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+  $breakpoints: (
+    'small':  767px,
+    'medium': 992px,
+    'large':  1200px
+  );
+
+  //Si la llave existe en el mapa
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Imprime un media query basado en el breakpoint
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content; // hace referencia al contenido que existe dentro del código que ejecuta el mixin
+    }
+  }
+ 
+  // Si la llave no existe en el mapa, tirar un error
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+
+// extend común para títulos
+%titulo{
+  color: red;
+  
+  @include respond-to('medium') {
+    color: blue;
+  }
+
+  @include respond-to('large') {
+    color: black;
+  }
+}

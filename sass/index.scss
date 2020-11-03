@@ -1,6 +1,19 @@
-@use 'partial';
-@use 'partial2';
+@use 'utilities' as utilidades;
 
-@import 'partial3';
-@import 'partial3';
-@import 'partial3';
+h1 {
+  @extend  %titulo;
+  font-size: utilidades.calc-rem(32px);
+}
+
+h2, h3, h4, h5, h6{
+  @extend %titulo;
+}
+
+.normal{
+  color: gray;
+  font-size: 1.5rem;
+}
+
+p{
+  @extend .normal;
+}
