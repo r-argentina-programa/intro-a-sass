@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "sass": "sass ./sass/index.scss ./public/css/index.css",
-    "sass:watch": "sass ./sass/index.scss ./public/css/index.css --watch",
+    "sass:watch": "sass ./sass/index.scss ./public/css/index.css --watch --poll",
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "cross-env NODE_ENV=production gulp",
     "gulp:dev": "cross-env NODE_ENV=development gulp"
