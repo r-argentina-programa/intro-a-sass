@@ -44,7 +44,9 @@ function minificarCss(){
 
 function minificarJs(){
   return src('./js/index.js')
-    .pipe(uglify())
+    .pipe(uglify({
+        mangle: true
+    }))
     .pipe(dest('./public/js'))
 }
 
@@ -69,7 +71,7 @@ function iniciarServidor(){
 const correrTareasJs = series([limpiarJs, minificarJs]);
 const correrTareasCss = series([limpiarCss, compilarSass, minificarCss]);
 
-const correrTareasJsDev = series([limpiarJs]);
+const correrTareasJsDev = series([limpiarJs, copiarJs]);
 const correrTareasCssDev = series([limpiarCss, compilarSass, copiarSass]);
 
 const tareasDev = series([parallel([correrTareasJsDev, correrTareasCssDev, copiarHtml]), iniciarServidor]);
