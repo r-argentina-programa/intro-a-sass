@@ -77,9 +77,9 @@ const correrTareasCssDev = series([limpiarCss, compilarSass, copiarSass]);
 const tareasDev = series([parallel([correrTareasJsDev, correrTareasCssDev, copiarHtml]), iniciarServidor]);
 const tareasProd = series([parallel([correrTareasJs, correrTareasCss, copiarHtml]), iniciarServidor]);
 
-watch(['./js/*.js'], isDevelopment ? correrTareasJsDev : correrTareasJs);
-watch(['./sass/*.scss'], isDevelopment ? correrTareasCssDev : correrTareasCss);
-watch(['./index.html'], copiarHtml);
+watch(['./js/*.js'], {usePolling: true}, isDevelopment ? correrTareasJsDev : correrTareasJs);
+watch(['./sass/*.scss'], {usePolling: true}, isDevelopment ? correrTareasCssDev : correrTareasCss);
+watch(['./index.html'], {usePolling: true}, copiarHtml);
 
 exports.js = correrTareasJs;
 exports.css = correrTareasCss;
